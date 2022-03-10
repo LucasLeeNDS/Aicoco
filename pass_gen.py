@@ -1,12 +1,14 @@
+import string
+
 while True:
     # TODO:用户输入密码
     user_password = input('请输入新密码:')
     # print(user_password)
 
     # TODO:判断密码是否合格:大写、小写、数字、特殊符号、长度
-    UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    LOWER = 'abcdefghijklmnopqrstuvwxuz'
-    DIGIT = '0123456789'
+    # UPPER = string.ascii_uppercase  # 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    # LOWER = string.ascii_lowercase  # 'abcdefghijklmnopqrstuvwxuz'
+    # DIGIT = string.digits  # '0123456789'
     # PUNCTUATION = '!@#$%^&*()_-+{}|:\"\'<>?[];,./\\'
 
     have_upper = False
@@ -16,18 +18,17 @@ while True:
     have_enough_char = (len(user_password) >= 8)
 
     for char in user_password:
-        if char in UPPER:
+        if char in string.ascii_uppercase:
             have_upper = True
-        elif char in LOWER:
+        elif char in string.ascii_lowercase:
             have_lower = True
-        elif char in DIGIT:
+        elif char in string.digits:
             have_digit = True
         else:
             have_punctuation = True
 
     is_secure = have_punctuation and have_digit and have_lower and have_upper \
                 and have_enough_char
-
 
     # TODO:输出
     if is_secure:
