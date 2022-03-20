@@ -139,3 +139,4 @@ dmypy.json
 cython_debug/
 
 !/Pass_gen/pass_gen.ipynb
+!/Douban_c/book.csv
